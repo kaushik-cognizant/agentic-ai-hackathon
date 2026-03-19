@@ -19,6 +19,7 @@ rm -f "${ARCHIVE}" "ollama-linux-amd64.tar"
 
 export PATH="${INSTALL_DIR}/bin:${PATH}"
 export LD_LIBRARY_PATH="${INSTALL_DIR}/lib/ollama:${LD_LIBRARY_PATH:-}"
+export OLLAMA_HOST="127.0.0.1:11435"
 
 # ollama serve &
 # sleep 3

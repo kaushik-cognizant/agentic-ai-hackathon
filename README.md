@@ -3,44 +3,68 @@
 This is a minimal Python script to call a locally hosted Ollama model using LangChain. It supports simple prompts, optional system prompts, temperature, base URL overrides, and optional streaming.
 
 ## Prerequisites
-- Python 3.9+
+- Python 3.13.x
 - Ollama installed and running locally
-  - Install: https://ollama.com/download
-  - Pull a model (example): `ollama pull llama3`
-  - Ensure the server is listening (default): `http://localhost:11434`
+  - Install in user mode in cluster using the setup_ollama.sh script
 
-## Quickstart
-```bash
-# 1) (Optional) Create a virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
 
-# 2) Install dependencies
-pip install -r requirements.txt
+## Configure environment e.g. zshrc
 
-# 3) Run with a quick prompt
-python main.py "Write a haiku about the sea."
-
-# Use a specific model and streaming
-python main.py "Summarize the benefits of unit testing" \
-  --model llama3 --stream
-
-# Override base URL if your Ollama is not on default
-python main.py "Hello there" --base-url http://127.0.0.1:11434
-
-# Provide a custom system prompt and temperature
-python main.py "Explain quantum entanglement simply" \
-  --system "You are a clear and concise tutor." \
-  --temperature 0.2
+```zsh
+# Ollama
+export PATH="${HOME}/.local/bin:${PATH}"
+export LD_LIBRARY_PATH="${HOME}/.local/lib/ollama:${LD_LIBRARY_PATH:-}"
+export OLLAMA_HOST="127.0.0.1:11435"
 ```
 
-## Notes
-- Default model is `llama3`. Change with `--model`.
-- Default base URL is read from `OLLAMA_BASE_URL` or `http://localhost:11434`.
-- Use `--stream` for token-by-token streaming output.
+## Figure out the GPU which can handle the model
 
-## Troubleshooting
-- If you see a connection error, verify Ollama is running:
-  - `ollama serve` (if it doesn't start automatically)
-  - Confirm with `curl http://localhost:11434/api/tags`
-- Ensure the model you specify is pulled: `ollama pull <model>`.
+```sh
+nvidia-smi --query-gpu=index,uuid,name,memory.free,memory.total --format=csv
+```
+
+```
+ps aux | grep ollama
+```
+
+```sh
+CUDA_VISIBLE_DEVICES=GPU-ed593958-3b42-d47d-9dd3-c765d493335b OLLAMA_KEEP_ALIVE=-1 ollama serve
+```
+
+```sh
+nohup env CUDA_VISIBLE_DEVICES=GPU-ed593958-3b42-d47d-9dd3-c765d493335b OLLAMA_KEEP_ALIVE=-1 ollama serve > ollama_log &
+```
+
+## Expose server to the world
+
+```sh
+nohup env CUDA_VISIBLE_DEVICES=GPU-ed593958-3b42-d47d-9dd3-c765d493335b OLLAMA_KEEP_ALIVE=-1 OLLAMA_HOST=0.0.0.0:11435 ollama serve > ollama_log &
+```
+
+```
+curl http://172.16.2.17:11435/api/chat -d '{
+  "model": "qwen3.5",
+  "messages": [{
+    "role": "user",
+    "content": "How many letter r are in strawberry?"
+  }],
+  "think": false,
+  "stream": false
+}'
+```
+
+```
+curl http://localhost:11435/api/chat -d '{
+  "model": "qwen3.5",
+  "messages": [{
+    "role": "user",
+    "content": "How many letter r are in strawberry?"
+  }],
+  "think": false,
+  "stream": false
+}'
+```
+
+```
+curl http://localhost:11435/api/tags
+```
