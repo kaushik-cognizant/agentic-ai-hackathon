@@ -2,17 +2,16 @@
 # LLM Resources
 
 A list of free API keys are given in this git repo: https://github.com/cheahjs/free-llm-api-resources
-Please keep any eye out on your usage so that you don't run out.
-
+Please keep an eye out on your usage so that you don't run out.
 
 Once you've procured the key, the configuration of some of them for neuro-san-studio are given below:
 
 ## Mistral
 
-Get your key from Mistral.ai and set it up in your env file based on your OS. For e.g. in linux:
+Get your key from Mistral.ai and set it up in your env file based on your OS. For e.g. in Linux:
 
 ```zsh
-export MISTAL_API_KEY="<your-api-key>"
+export MISTRAL_API_KEY="<your-api-key>"
 ```
 
 You'll need the langchain package.
@@ -28,14 +27,15 @@ Example `llm_config.hocon`:
     "llm_config": {
         "class": "langchain_mistralai.chat_models.ChatMistralAI",
         "model": "mistral-medium-latest",
-        "temperature": 0,
+        "temperature": 0
     }
 }
 ```
 
 ## Google Gemini
 
-Get your key from google and set it up in your env file based on your OS. For e.g. in linux:
+Get your key from Google and set it up in your env file based on your OS. For e.g. in Linux:
+The free version is quite restrictive.
 
 ```zsh
 export GEMINI_API_KEY='<your-api-key>'
@@ -54,7 +54,7 @@ Example `llm_config.hocon`:
     "llm_config": {
         "class": "langchain_google_genai.chat_models.ChatGoogleGenerativeAI",
         "model": "gemini-flash-latest",
-        "temperature": 0,
+        "temperature": 0
     }
 }
 ```
@@ -71,14 +71,14 @@ pip install langchain-cerebras
 
 Important: the above package isn't updated for latest version of langchain. So once you've installed `langchain-cerebras` install neuro-san-studio requirements.txt one more time. 
 
-Only a few models are supporeted by cerebras in the free-tier, check your playground in the cerbras website for the available ones.
+Only a few models are supported by Cerebras in the free-tier, check your playground in the Cerebras website for the available ones.
 
 ```json
 {
     "llm_config": {
         "class": "langchain_cerebras.chat_models.ChatCerebras",
         "model": "qwen-3-235b-a22b-instruct-2507",
-        "temperature": 0,
+        "temperature": 0
     }
 }
 ```
