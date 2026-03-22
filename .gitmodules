@@ -1,6 +1,3 @@
-[submodule "mistral/neuro-san-studio"]
-	path = mistral/neuro-san-studio
-	url = https://github.com/cognizant-ai-lab/neuro-san-studio
 [submodule "neuro-san-studio"]
 	path = neuro-san-studio
 	url = https://github.com/cognizant-ai-lab/neuro-san-studio
