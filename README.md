@@ -1,70 +1,28 @@
-# LangChain + Ollama (Local) Script
+# 🤖 Neuro-SAN Agentic AI Hackathon
 
-This is a minimal Python script to call a locally hosted Ollama model using LangChain. It supports simple prompts, optional system prompts, temperature, base URL overrides, and optional streaming.
+Welcome to the repository containing supporting materials for the **Neuro-SAN Agentic AI Hackathon**. 
 
-## Prerequisites
-- Python 3.13.x
-- Ollama installed and running locally
-  - Install in user mode in cluster using the setup_ollama.sh script
+The hackathon is open to all students and scholars of IIIT Guwahati. 
+
+> **Organized by:** Cognizant AI Lab × Indian Institute of Information Technology Guwahati
+
+## 📋 Rules
+
+Please read the rules here: [Hackathon Rules & Guidelines](https://github.com/kaushik-cognizant/agentic-ai-hackathon/discussions/1)
 
 
-## Configure environment e.g. zshrc
+## 🤖 Neuro-SAN Studio
 
-```zsh
-# Ollama
-export PATH="${HOME}/.local/bin:${PATH}"
-export LD_LIBRARY_PATH="${HOME}/.local/lib/ollama:${LD_LIBRARY_PATH:-}"
-export OLLAMA_HOST="127.0.0.1:11435"
-```
+You can download the neuro-san framework from: https://github.com/cognizant-ai-lab/neuro-san-studio
 
-## Figure out the GPU which can handle the model
+There are plenty of examples and setup instructions within the above repo itself. Please me good use of those.
 
-```sh
-nvidia-smi --query-gpu=index,uuid,name,memory.free,memory.total --format=csv
-```
 
-```
-ps aux | grep ollama
-```
+## 🆓 Free LLM API Resources
 
-```sh
-CUDA_VISIBLE_DEVICES=GPU-ed593958-3b42-d47d-9dd3-c765d493335b OLLAMA_KEEP_ALIVE=-1 ollama serve
-```
+- Community-maintained list: [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources)
+- Tested resources by the organizers: see [`LLM_Configs.md`](hackathon_materials/LLM_Configs.md)
 
-```sh
-nohup env CUDA_VISIBLE_DEVICES=GPU-ed593958-3b42-d47d-9dd3-c765d493335b OLLAMA_KEEP_ALIVE=-1 ollama serve > ollama_log &
-```
+## Issues
 
-## Expose server to the world
-
-```sh
-nohup env CUDA_VISIBLE_DEVICES=GPU-ed593958-3b42-d47d-9dd3-c765d493335b OLLAMA_KEEP_ALIVE=-1 OLLAMA_HOST=0.0.0.0:11435 ollama serve > ollama_log &
-```
-
-```
-curl http://172.16.2.17:11435/api/chat -d '{
-  "model": "qwen3.5",
-  "messages": [{
-    "role": "user",
-    "content": "How many letter r are in strawberry?"
-  }],
-  "think": false,
-  "stream": false
-}'
-```
-
-```
-curl http://localhost:11435/api/chat -d '{
-  "model": "qwen3.5",
-  "messages": [{
-    "role": "user",
-    "content": "How many letter r are in strawberry?"
-  }],
-  "think": false,
-  "stream": false
-}'
-```
-
-```
-curl http://localhost:11435/api/tags
-```
+Please post in the discussions or open an issue if you've facing any difficulty.
