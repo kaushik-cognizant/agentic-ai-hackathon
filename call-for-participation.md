@@ -38,6 +38,8 @@ Projects may align with one of the following hackathon themes:
 - 🤝 Multi-agent coordination systems
 - 🔬 Domain-specific agentic applications
 
+‼️ Rules and guidelines: https://github.com/kaushik-cognizant/agentic-ai-hackathon/discussions/1
+
 ---
 
 ## Why Participate?
