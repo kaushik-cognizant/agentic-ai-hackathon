@@ -8,7 +8,7 @@ The hackathon is open to all students and scholars of IIIT Guwahati.
 
 ## Call for Participation:
 
-Please read the call for participation here: https://github.com/kaushik-cognizant/agentic-ai-hackathon/call-for-participation.md
+Please read the call for participation here: https://github.com/kaushik-cognizant/agentic-ai-hackathon/blob/main/call-for-participation.md
 
 
 ## 📋 Rules
