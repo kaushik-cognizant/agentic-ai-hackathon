@@ -57,13 +57,14 @@ Projects may align with one of the following hackathon themes:
 
 | Phase | Date |
 |---|---|
-| Registration | March 26 – March 31, 2026 |
-| Participant Confirmation | April 1, 2026 |
-| Hackathon Kickoff | April 3, 2026 |
+| Registration | March 26 – April 5, 2026 |
 | Development Phase | April 3 – April 7, 2026 |
 | Project Submission Deadline | April 8, 2026 |
 | Evaluation | April 9, 2026 |
 | Results Announcement | April 10, 2026 |
+
+
+Update: April 1, Registration deadline extended. Feel free to register until the form is open.
 
 ---
 
@@ -81,7 +82,7 @@ More information will be available in the github repo: https://github.com/kaushi
 
 Please check the discussion board for the rules: https://github.com/kaushik-cognizant/agentic-ai-hackathon/discussions/1 
 
-Please reach in the discussion board or open an issue in the hackathon repo for more information.
+Please reach in the discussion board or open an issue in the hackathon repo for any queries or support.
 
 ---
 
