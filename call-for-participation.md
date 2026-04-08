@@ -57,14 +57,16 @@ Projects may align with one of the following hackathon themes:
 
 | Phase | Date |
 |---|---|
-| Registration | March 26 – April 5, 2026 |
-| Development Phase | April 3 – April 7, 2026 |
-| Project Submission Deadline | April 8, 2026 |
-| Evaluation | April 9, 2026 |
-| Results Announcement | April 10, 2026 |
+| Registration | March 26 – April ~~5~~ 12, 2026 |
+| Development Phase | April 3 onwards, 2026 |
+| Project Submission Deadline | April ~~8~~ 12, 2026 |
+| Evaluation | April 13, 2026 |
+| Results Announcement | April 13, 2026 |
 
 
 Update: April 1, Registration deadline extended. Feel free to register until the form is open.
+
+Update: April 8, Registrations open till end of hackathon submission deadline. 
 
 ---
 
